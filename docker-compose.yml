@@ -2,7 +2,7 @@ version: '3.9'
 
 x-base_service: &base_service
     ports:
-      - "7860:7860"
+      - "${WEBUI_PORT:-7860}:7860"
     volumes:
       - &v1 ./data:/data
       - &v2 ./output:/output
@@ -29,7 +29,7 @@ services:
     <<: *base_service
     profiles: ["auto"]
     build: ./services/AUTOMATIC1111
-    image: sd-auto:59
+    image: sd-auto:60
     environment:
       - CLI_ARGS=--allow-code --medvram --xformers --enable-insecure-extension-access --api
 

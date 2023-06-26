@@ -15,6 +15,10 @@ if [ ! -f /data/config/auto/ui-config.json ]; then
   echo '{}' >/data/config/auto/ui-config.json
 fi
 
+if [ ! -f /data/config/auto/cache.json ]; then
+  echo '{}' >/data/config/auto/cache.json
+fi
+
 if [ ! -f /data/config/auto/styles.csv ]; then
   touch /data/config/auto/styles.csv
 fi
@@ -36,6 +40,7 @@ MOUNTS["${ROOT}/ui-config.json"]="/data/config/auto/ui-config.json"
 MOUNTS["${ROOT}/styles.csv"]="/data/config/auto/styles.csv"
 MOUNTS["${ROOT}/extensions"]="/data/config/auto/extensions"
 MOUNTS["${ROOT}/config_states"]="/data/config/auto/config_states"
+MOUNTS["${ROOT}/cache.json"]="/data/config/auto/cache.json"
 
 # extra hacks
 MOUNTS["${ROOT}/repositories/CodeFormer/weights/facelib"]="/data/.cache"

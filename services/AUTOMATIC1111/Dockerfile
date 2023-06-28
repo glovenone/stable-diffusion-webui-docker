@@ -41,7 +41,7 @@ RUN --mount=type=cache,target=/cache --mount=type=cache,target=/root/.cache/pip 
 
 
 RUN --mount=type=cache,target=/root/.cache/pip \
-  git clone https://github.com/glovenone/aimirror-stable-diffusion-webui.git && \
+  git clone https://github.com/glovenone/aimirror-stable-diffusion-webui.git stable-diffusion-webui && \
   cd stable-diffusion-webui && \
   pip install -r requirements_versions.txt
 

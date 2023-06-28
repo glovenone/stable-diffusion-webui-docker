@@ -72,11 +72,11 @@ RUN --mount=type=cache,target=/root/.cache/pip \
 RUN apt-get -y install libgoogle-perftools-dev && apt-get clean
 ENV LD_PRELOAD=libtcmalloc.so
 
-ARG SHA=20ae71faa8ef035c31aa3a410b707d792c8203a3
+
 RUN --mount=type=cache,target=/root/.cache/pip \
   cd stable-diffusion-webui && \
   git fetch && \
-  git reset --hard ${SHA} && \
+  git reset --hard  && \
   pip install -r requirements_versions.txt
 
 COPY . /docker

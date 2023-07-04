@@ -45,7 +45,7 @@ RUN --mount=type=cache,target=/root/.cache/pip \
 RUN --mount=type=cache,target=/root/.cache/pip \
   git clone https://github.com/glovenone/aimirror-stable-diffusion-webui.git stable-diffusion-webui && \
   cd stable-diffusion-webui && \
-  git reset --hard tag_0629_async_api && \  
+  git reset --hard tag_0704_notify_error && \  
   pip install -r requirements_versions.txt
 
 RUN --mount=type=cache,target=/root/.cache/pip  \
@@ -74,7 +74,7 @@ RUN apt-get -y install libgoogle-perftools-dev && apt-get clean
 ENV LD_PRELOAD=libtcmalloc.so
 
 # ARG SHA=20ae71faa8ef035c31aa3a410b707d792c8203a3
-ARG SHA=tag_0629_async_api
+ARG SHA=tag_0704_notify_error
 RUN --mount=type=cache,target=/root/.cache/pip \
   cd stable-diffusion-webui && \
   git fetch && \

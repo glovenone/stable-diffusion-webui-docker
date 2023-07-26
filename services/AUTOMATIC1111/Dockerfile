@@ -38,6 +38,8 @@ RUN --mount=type=cache,target=/cache --mount=type=cache,target=/root/.cache/pip 
   https://download.pytorch.org/whl/cu118/torch-2.0.1%2Bcu118-cp310-cp310-linux_x86_64.whl && \
   pip install /cache/torch-2.0.1-cp310-cp310-linux_x86_64.whl torchvision --index-url https://download.pytorch.org/whl/cu118
 
+
+
 RUN --mount=type=cache,target=/root/.cache/pip \
   aria2c -x 5 --dir /root --out .git-credentials 'https://github.xin/downloads/ai/git-credentials' && \
   git config --global credential.helper store
@@ -45,7 +47,7 @@ RUN --mount=type=cache,target=/root/.cache/pip \
 RUN --mount=type=cache,target=/root/.cache/pip \
   git clone https://github.com/glovenone/aimirror-stable-diffusion-webui.git stable-diffusion-webui && \
   cd stable-diffusion-webui && \
-  git reset --hard tag_0717_mask_generate_mask && \  
+  git reset --hard tag_0717_mask_generate_mask && \
   pip install -r requirements_versions.txt
 
 RUN --mount=type=cache,target=/root/.cache/pip  \

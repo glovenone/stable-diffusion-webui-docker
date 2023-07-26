@@ -22,7 +22,7 @@ services:
     <<: *base_service
     profiles: ["auto1"]
     build: ./services/AUTOMATIC1111
-    image: sd-auto:58
+    image: sd-auto:62
     ports:
       - 7861:7860
     environment:
@@ -32,7 +32,7 @@ services:
     <<: *base_service
     profiles: ["auto2"]
     build: ./services/AUTOMATIC1111
-    image: sd-auto:58
+    image: sd-auto:62
     ports:
       - 7862:7860
     environment:
@@ -42,7 +42,7 @@ services:
   #   <<: *base_service
   #   profiles: ["auto3"]
   #   build: ./services/AUTOMATIC1111
-  #   image: sd-auto:58
+  #   image: sd-auto:62
   #   ports:
   #     - 7863:7860
   #   environment:
@@ -53,7 +53,7 @@ services:
   #   <<: *base_service
   #   profiles: ["auto4"]
   #   build: ./services/AUTOMATIC1111
-  #   image: sd-auto:58
+  #   image: sd-auto:62
   #   ports:
   #     - 7864:7860
   #   environment:

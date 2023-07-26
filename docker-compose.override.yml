@@ -2,11 +2,12 @@ version: '3.9'
 
 x-base_service: &base_service
     ports:
-      - "7860:7860"
+      - "${WEBUI_PORT:-7860}:7860"
     volumes:
       - &v1 ./data:/data
       - &v2 ./output:/output
-    stop_signal: SIGINT
+    stop_signal: SIGKILL
+    tty: true
     deploy:
       resources:
         reservations:
@@ -38,23 +39,22 @@ services:
     environment:
       - CLI_ARGS=--allow-code --xformers --enable-insecure-extension-access --api
 
-  # auto3: &automatic
-  #   <<: *base_service
-  #   profiles: ["auto3"]
-  #   build: ./services/AUTOMATIC1111
-  #   image: sd-auto:62
-  #   ports:
-  #     - 7863:7860
-  #   environment:
-  #     - CLI_ARGS=--allow-code --xformers --enable-insecure-extension-access --api
+  auto3: &automatic
+    <<: *base_service
+    profiles: ["auto3"]
+    build: ./services/AUTOMATIC1111
+    image: sd-auto:62
+    ports:
+      - 7863:7860
+    environment:
+      - CLI_ARGS=--allow-code --xformers --enable-insecure-extension-access --api
 
-
-  # auto4: &automatic
-  #   <<: *base_service
-  #   profiles: ["auto4"]
-  #   build: ./services/AUTOMATIC1111
-  #   image: sd-auto:62
-  #   ports:
-  #     - 7864:7860
-  #   environment:
-  #     - CLI_ARGS=--allow-code --xformers --enable-insecure-extension-access --api
+  auto4: &automatic
+    <<: *base_service
+    profiles: ["auto4"]
+    build: ./services/AUTOMATIC1111
+    image: sd-auto:62
+    ports:
+      - 7864:7860
+    environment:
+      - CLI_ARGS=--allow-code --xformers --enable-insecure-extension-access --api

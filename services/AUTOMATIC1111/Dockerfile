@@ -78,7 +78,7 @@ ENV LD_PRELOAD=libtcmalloc.so
 
 # ARG SHA=20ae71faa8ef035c31aa3a410b707d792c8203a3
 # ARG SHA=glove_tag/v1.4.0.2-deepface_txt2img
-ARG SHA=glove_tag/v1.5.1.1/sdxl_fixmodel # 跟随原始docker项目进行升级
+ARG SHA=glove_tag/v1.5.1.1/2_firebase_callback_complete # 跟随原始docker项目进行升级
 RUN --mount=type=cache,target=/root/.cache/pip \
   cd stable-diffusion-webui && \
   git fetch && \
